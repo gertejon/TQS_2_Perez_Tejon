@@ -37,7 +37,7 @@ public class WebStepDefinitions {
 
     @Given("I go to the home page")
     public void iGoToTheHomePage() {
-        driver.get("https://www.oubiti.com/");
+        driver.get("https://www.3djuegos.com/");
     }
 
     @Then("I should see a {string} button/text")

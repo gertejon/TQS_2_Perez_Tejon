@@ -12,3 +12,5 @@ Feature: Tests a page using Selenium WebDriver
     When I click on "Oubiti" button
     Then I should see a "About Me" text
     And I take a screenshot with filename "About Me"
+
+
