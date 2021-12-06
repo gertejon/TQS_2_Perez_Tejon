@@ -64,13 +64,17 @@ public class WebStepDefinitions {
         scenario.attach(screenshot, "image/png", "filename");
     }
 
+    @And("I fill the mail box with {string}")
+    public void iFillTheMailBox(String mail){
+        WebElement mailbox = driver.findElement(By.name("login_email"));
+        mailbox.sendKeys(mail + Keys.ENTER);
+    }
 
-
-
-
-
-
-
+    @And("I fill the password box with {string}")
+    public void iFillThePasswordBox(String password){
+        WebElement mailbox = driver.findElement(By.name("login_password"));
+        mailbox.sendKeys(password + Keys.ENTER);
+    }
 
     @AfterAll()
     public static void tearDown() {
