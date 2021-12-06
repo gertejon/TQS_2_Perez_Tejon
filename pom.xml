@@ -71,7 +71,7 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-edge-driver</artifactId>
             <version>2.47.1</version>
-        </dependency> -->
+        </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
@@ -81,7 +81,7 @@
             <groupId>com.microsoft.edge</groupId>
             <artifactId>msedge-selenium-tools-java</artifactId>
             <version>3.141.0</version>
-        </dependency>
+        </dependency> -->
     </dependencies>
 
     <build>

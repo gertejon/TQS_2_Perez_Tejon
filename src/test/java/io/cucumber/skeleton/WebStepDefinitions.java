@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebElement;
 
 public class WebStepDefinitions {
 
@@ -25,7 +26,7 @@ public class WebStepDefinitions {
         // This property is optional.
         // If not specified, WebDriver searches the path for chromedriver in your environment variables
         // Example path for Linux or Mac:
-        System.setProperty("webdriver.edge.driver", "msedgedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
     }
 
@@ -36,7 +37,7 @@ public class WebStepDefinitions {
 
     @Given("I go to the home page")
     public void iGoToTheHomePage() {
-        driver.get("https://www.oubiti.com");
+        driver.get("https://www.oubiti.com/");
     }
 
     @Then("I should see a {string} button/text")
@@ -51,11 +52,25 @@ public class WebStepDefinitions {
         driver.findElement(By.linkText(button_text)).click();
     }
 
+    @When("I fill the search box with {string}")
+    public void iFillTheSearchBox(String query_text) {
+        WebElement searchbox = driver.findElement(By.name("q"));
+        searchbox.sendKeys(query_text + Keys.ENTER);
+    }
+
     @And("I take a screenshot with filename {string}")
     public void iTakeAScreenshotWithFilename(String filename) {
         byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         scenario.attach(screenshot, "image/png", "filename");
     }
+
+
+
+
+
+
+
+
 
     @AfterAll()
     public static void tearDown() {
