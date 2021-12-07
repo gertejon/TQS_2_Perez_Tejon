@@ -31,4 +31,14 @@ public class RunCucumberTest {
         Thread.sleep(3000);
         driver.quit();
     }
+
+    @Test
+    public void testCutre() {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.3djuegos.com/");
+
+        WebElement insta = driver.findElement(By.linkText("Instagram"));
+        insta.click();
+    }
 }

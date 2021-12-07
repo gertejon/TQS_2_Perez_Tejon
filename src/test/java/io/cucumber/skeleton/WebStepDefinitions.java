@@ -36,8 +36,9 @@ public class WebStepDefinitions {
     }
 
     @Given("I go to the home page")
-    public void iGoToTheHomePage() {
+    public void iGoToTheHomePage() throws InterruptedException {
         driver.get("https://www.3djuegos.com/");
+        Thread.sleep(3000);
     }
 
     @Given("I go to the login page")
@@ -51,8 +52,10 @@ public class WebStepDefinitions {
     }
 
     @When("I click on {string} button")
-    public void iClickOnButton(String button_text){
-        driver.findElement(By.linkText(button_text)).click();
+    public void iClickOnButton(String button_text) throws InterruptedException {
+        WebElement obj = driver.findElement(By.linkText(button_text));
+        obj.click();
+        Thread.sleep(3000);
     }
 
     @When("I fill the search box with {string}")
