@@ -40,6 +40,8 @@ public class WebStepDefinitions {
         driver.get("https://www.3djuegos.com/");
     }
 
+    @Given("I go to the login page")
+    public void iGoToTheLoginPage(){driver.get("https://www.3djuegos.com/foros/index.php?zona=iniciar_sesion");}
     @Then("I should see a {string} button/text")
     public void iShouldSeeAButton(String text) {
         By byXPath = By.xpath("//*[contains(text(),'" + text + "')]");
@@ -48,7 +50,7 @@ public class WebStepDefinitions {
     }
 
     @When("I click on {string} button")
-    public void iClickOnButton(String button_text) {
+    public void iClickOnButton(String button_text){
         driver.findElement(By.linkText(button_text)).click();
     }
 
@@ -71,9 +73,10 @@ public class WebStepDefinitions {
     }
 
     @And("I fill the password box with {string}")
-    public void iFillThePasswordBox(String password){
+    public void iFillThePasswordBox(String password) throws InterruptedException {
         WebElement mailbox = driver.findElement(By.name("login_password"));
         mailbox.sendKeys(password + Keys.ENTER);
+        Thread.sleep(3000);
     }
 
     @AfterAll()
