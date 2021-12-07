@@ -42,6 +42,7 @@ public class WebStepDefinitions {
 
     @Given("I go to the login page")
     public void iGoToTheLoginPage(){driver.get("https://www.3djuegos.com/foros/index.php?zona=iniciar_sesion");}
+
     @Then("I should see a {string} button/text")
     public void iShouldSeeAButton(String text) {
         By byXPath = By.xpath("//*[contains(text(),'" + text + "')]");
