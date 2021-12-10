@@ -1,6 +1,7 @@
 Feature:
   As a user
   I want to interact with the web
+  So I can access every single part of the web
 
   Scenario: The website can be browsed
     When I go to the home page

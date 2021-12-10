@@ -10,6 +10,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class WebStepDefinitions {
 
     /**
@@ -47,7 +49,8 @@ public class WebStepDefinitions {
     @Then("I should see a {string} button/text")
     public void iShouldSeeAButton(String text) {
         By byXPath = By.xpath("//*[contains(text(),'" + text + "')]");
-        boolean present = driver.findElements(byXPath).size() > 0;
+        List<WebElement> elem = driver.findElements(byXPath);
+        boolean present = elem.size() > 0;
         Assertions.assertTrue(present);
     }
 
@@ -62,6 +65,11 @@ public class WebStepDefinitions {
     public void iFillTheSearchBox(String query_text) {
         WebElement searchbox = driver.findElement(By.name("q"));
         searchbox.sendKeys(query_text + Keys.ENTER);
+    }
+
+    @And("I log in with user {string}")
+    public void iLogIn() {
+
     }
 
     @And("I take a screenshot with filename {string}")
@@ -82,6 +90,30 @@ public class WebStepDefinitions {
         mailbox.sendKeys(password + Keys.ENTER);
         Thread.sleep(3000);
     }
+
+    @And("I fill the {string} box with {string}")
+    public void iFillTheBox(String box, String fill) throws InterruptedException {
+        WebElement mailbox = driver.findElement(By.name(box));
+        mailbox.sendKeys(fill + Keys.ENTER);
+        Thread.sleep(3000);
+    }
+
+    @And("I set the password to default")
+    public void setPwdDefault() throws InterruptedException {
+        iFillTheBox("login_pass", "newpassword");
+        iFillTheBox("reg_password1", "Eltestescorrecto");
+        iFillTheBox("reg_password2", "Eltestescorrecto");
+        iClickOnButton("Cambiar clave de acceso");
+    }
+
+    @And("I set the email to default")
+    public void setEmailDefault() throws InterruptedException {
+        iFillTheBox("login_pass", "Eltestescorrecto");
+        iFillTheBox("reg_email1", "jphofland@gmail.com");
+        iFillTheBox("reg_email2", "jphofland@gmail.com");
+        iClickOnButton("Cambiar email");
+    }
+
 
     @AfterAll()
     public static void tearDown() {
