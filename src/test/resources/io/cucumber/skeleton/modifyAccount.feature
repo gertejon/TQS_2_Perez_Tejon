@@ -4,6 +4,7 @@ Feature: As a registered user
 
   Scenario: The website allows the user to recover their password
     Given I go to the login page
+    And I accept cookies
     And I fill the mail box with "jphofland@gmail.com"
     And I fill the password box with "Eltestescorrecto"
     And I click on "Preferencias" button
@@ -14,6 +15,7 @@ Feature: As a registered user
 
   Scenario: The website allows the user to change their password
     Given I go to the login page
+    And I accept cookies
     And I fill the mail box with "jphofland@gmail.com"
     And I fill the password box with "Eltestescorrecto"
     And I click on "Preferencias" button
@@ -30,6 +32,7 @@ Feature: As a registered user
 
   Scenario: The website allows the user to change their mail
     Given I go to the login page
+    And I accept cookies
     And I fill the mail box with "jphofland@gmail.com"
     And I fill the password box with "Eltestescorrecto"
     And I click on "Preferencias" button

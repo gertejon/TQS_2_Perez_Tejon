@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Objects;
 
 public class WebStepDefinitions {
 
@@ -54,6 +55,12 @@ public class WebStepDefinitions {
         Assertions.assertTrue(present);
     }
 
+    @Then("I should be on this website: {string}")
+    public void iShouldBeOnURL(String url) {
+        String currentURL = driver.getCurrentUrl();
+        Assertions.assertEquals(currentURL, url);
+    }
+
     @When("I click on {string} button")
     public void iClickOnButton(String button_text) throws InterruptedException {
         WebElement obj = driver.findElement(By.linkText(button_text));
@@ -70,6 +77,13 @@ public class WebStepDefinitions {
     @And("I log in with user {string}")
     public void iLogIn() {
 
+    }
+
+    @And("I accept cookies")
+    public void acceptCookies() {
+        String button = "didomi-notice-agree-button";
+        WebElement obj = driver.findElement(By.id(button));
+        obj.click();
     }
 
     @And("I take a screenshot with filename {string}")
