@@ -5,13 +5,16 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class WebStepDefinitions {
 
@@ -106,17 +109,17 @@ public class WebStepDefinitions {
     }
 
     @And("I fill the password box with {string}")
-    public void iFillThePasswordBox(String password) throws InterruptedException {
+    public void iFillThePasswordBox(String password) {
         WebElement mailbox = driver.findElement(By.name("login_password"));
         mailbox.sendKeys(password + Keys.ENTER);
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
     @And("I fill the {string} box with {string}")
-    public void iFillTheBox(String box, String fill) throws InterruptedException {
+    public void iFillTheBox(String box, String fill) {
         WebElement mailbox = driver.findElement(By.name(box));
         mailbox.sendKeys(fill + Keys.ENTER);
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
     @And("I set the password to default")
