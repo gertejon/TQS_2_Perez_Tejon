@@ -7,20 +7,19 @@ Feature:
     Given I go to the home page
     And I accept cookies
     When I click on "Instagram" button
+    And I switch to the opened tab
     Then I should be on this website: "https://www.instagram.com/3djuegos/"
 
   Scenario: The website allows the user seeing webpage's Twitter
     Given I go to the home page
     And I accept cookies
     When I click on "Twitter" button
-    Then I should see a "Me gusta" text
-    And I should see a "Fotos y videos" text
-    And I should see a "Seguir" text
+    And I switch to the opened tab
+    Then I should be on this website: "https://twitter.com/3djuegos"
 
   Scenario: The website allows the user seeing webpage's TikTok
     Given I go to the home page
     And I accept cookies
-    When I click on "TikTok" button
-    Then I should see a "Follow" button
-    And I should see a "Liked" button
-    And I should see a "Upload" button
+    When I click on "Facebook" button
+    And I switch to the opened tab
+    Then I should be on this website: "https://www.facebook.com/3djuegos"

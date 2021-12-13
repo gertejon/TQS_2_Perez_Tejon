@@ -57,6 +57,7 @@ public class WebStepDefinitions {
 
     @Then("I should be on this website: {string}")
     public void iShouldBeOnURL(String url) {
+        String currentHandle = driver.getWindowHandle();
         String currentURL = driver.getCurrentUrl();
         Assertions.assertEquals(currentURL, url);
     }
@@ -74,9 +75,15 @@ public class WebStepDefinitions {
         searchbox.sendKeys(query_text + Keys.ENTER);
     }
 
-    @And("I log in with user {string}")
-    public void iLogIn() {
-
+    @And("I switch to the opened tab")
+    public void switchToNewTab() {
+        String originalWindow = driver.getWindowHandle();
+        for (String windowHandle : driver.getWindowHandles()) {
+            if(!originalWindow.contentEquals(windowHandle)) {
+                driver.switchTo().window(windowHandle);
+                break;
+            }
+        }
     }
 
     @And("I accept cookies")
