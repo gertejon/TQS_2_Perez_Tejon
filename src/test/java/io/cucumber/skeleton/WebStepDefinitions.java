@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -146,6 +147,14 @@ public class WebStepDefinitions {
         iFillTheBox("reg_email1", "jphofland@gmail.com");
         iFillTheBox("reg_email2", "jphofland@gmail.com");
         iClickOnButton("Cambiar email");
+    }
+
+    @And("I close the tab")
+    public void closeTab() {
+        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs2.get(1));
+        driver.close();
+        driver.switchTo().window(tabs2.get(0));
     }
 
 
