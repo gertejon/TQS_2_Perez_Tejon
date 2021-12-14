@@ -17,6 +17,7 @@ Feature:
 
   Scenario: The website allows logging out while navigating through articles section
     Given I go to the login page
+    #And I accept cookies
     And I fill the mail box with "jphofland@gmail.com"
     And I fill the password box with "Eltestescorrecto"
     And I click on "Iniciar sesión" button
@@ -28,6 +29,7 @@ Feature:
 
   Scenario: The website allows logging out from user's personal section
     Given I go to the login page
+    #And I accept cookies
     And I fill the mail box with "jphofland@gmail.com"
     And I fill the password box with "Eltestescorrecto"
     And I click on "Iniciar sesión" button

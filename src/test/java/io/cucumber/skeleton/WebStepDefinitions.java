@@ -42,13 +42,16 @@ public class WebStepDefinitions {
     }
 
     @Given("I go to the home page")
-    public void iGoToTheHomePage() throws InterruptedException {
+    public void iGoToTheHomePage() {
         driver.get("https://www.3djuegos.com/");
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
     @Given("I go to the login page")
-    public void iGoToTheLoginPage(){driver.get("https://www.3djuegos.com/foros/index.php?zona=iniciar_sesion");}
+    public void iGoToTheLoginPage() {
+        driver.get("https://www.3djuegos.com/foros/index.php?zona=iniciar_sesion");
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+    }
 
     @Then("I should see a {string} button/text")
     public void iShouldSeeAButton(String text) {
@@ -66,10 +69,11 @@ public class WebStepDefinitions {
     }
 
     @When("I click on {string} button")
-    public void iClickOnButton(String button_text) throws InterruptedException {
+    public void iClickOnButton(String button_text) {
         WebElement obj = driver.findElement(By.linkText(button_text));
         obj.click();
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
     @When("I fill the search box with {string}")
@@ -123,7 +127,7 @@ public class WebStepDefinitions {
     }
 
     @And("I set the password to default")
-    public void setPwdDefault() throws InterruptedException {
+    public void setPwdDefault() {
         iFillTheBox("login_pass", "newpassword");
         iFillTheBox("reg_password1", "Eltestescorrecto");
         iFillTheBox("reg_password2", "Eltestescorrecto");
@@ -131,7 +135,7 @@ public class WebStepDefinitions {
     }
 
     @And("I set the email to default")
-    public void setEmailDefault() throws InterruptedException {
+    public void setEmailDefault() {
         iFillTheBox("login_pass", "Eltestescorrecto");
         iFillTheBox("reg_email1", "jphofland@gmail.com");
         iFillTheBox("reg_email2", "jphofland@gmail.com");
