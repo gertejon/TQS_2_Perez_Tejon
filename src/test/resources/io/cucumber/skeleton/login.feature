@@ -4,7 +4,9 @@ Feature:
   So I can have discounts and other benefits
 
   Scenario: The website doesn't allow you to log in if the password has not been filled in.
-    Given I go to the login page
+    Given I go to the home page
+    And I click on "Salir" button
+    And I go to the login page
     #And I accept cookies
     When I fill the mail box with "jphofland@gmail.com"
     And I fill the password box with ""
@@ -34,3 +36,4 @@ Feature:
     And I fill the password box with "Eltestescorrecto"
     Then I should see a "TQS21" text
     And I should see a "Conectado" text
+    And I click on "Salir" button
