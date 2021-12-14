@@ -1,4 +1,5 @@
-Feature: As a registered user
+Feature:
+  As a registered user
   I want to modify my account
   So I have control over it
 
