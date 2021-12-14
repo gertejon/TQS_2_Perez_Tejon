@@ -76,6 +76,12 @@ public class WebStepDefinitions {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
+    @When("I click {string}")
+    public void iClickButton(String button){
+        WebElement obj = driver.findElement(By.id(button));
+        obj.click();
+    }
+
     @When("I fill the search box with {string}")
     public void iFillTheSearchBox(String query_text) {
         WebElement searchbox = driver.findElement(By.name("q"));

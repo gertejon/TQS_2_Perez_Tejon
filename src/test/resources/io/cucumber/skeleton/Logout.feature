@@ -8,8 +8,7 @@ Feature:
     And I accept cookies
     And I fill the mail box with "jphofland@gmail.com"
     And I fill the password box with "Eltestescorrecto"
-    And I click on "Iniciar sesión" button
-    And I go to the home page
+    And I click "login_boton_enviar"
     When I click on "Salir" button
     And I go to the home page
     Then I should see a "Iniciar sesión" button
@@ -20,7 +19,7 @@ Feature:
     #And I accept cookies
     And I fill the mail box with "jphofland@gmail.com"
     And I fill the password box with "Eltestescorrecto"
-    And I click on "Iniciar sesión" button
+    And I click "login_boton_enviar"
     And I click on "Artículos" button
     When I click on "Salir" button
     And I go to the home page
@@ -32,7 +31,7 @@ Feature:
     #And I accept cookies
     And I fill the mail box with "jphofland@gmail.com"
     And I fill the password box with "Eltestescorrecto"
-    And I click on "Iniciar sesión" button
+    And I click "login_boton_enviar"
     And I click on "Inicio" button
     When I click on "Salir" button
     And I go to the home page
