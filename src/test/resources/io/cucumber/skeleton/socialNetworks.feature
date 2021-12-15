@@ -19,7 +19,7 @@ Feature:
     Then I should be on this website: "https://twitter.com/3djuegos"
     And I close the tab
 
-  Scenario: The website allows the user seeing webpage's TikTok
+  Scenario: The website allows the user seeing webpage's Facebook
     Given I go to the home page
     #And I accept cookies
     When I click on "Facebook" button
